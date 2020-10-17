@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def bi_section(f, a, b):
+def bi_section(f, a, b, e):
     '''
     This is a function that calculates a root for given function "f"
     in the interval [a, b]
@@ -13,7 +13,7 @@ def bi_section(f, a, b):
 
     # the main while loop to check
     # if we are close enough to the desired tolerance
-    while abs(b-a) > 1e-8:
+    while abs(b-a) > e:
         # we have chosen the tolerance to be 1e-8 but we can consider
         # to give it as a parameter to the function
         c = (a+b)/2  # derive the mid point
@@ -43,5 +43,6 @@ def f(x):
 
 a = 0
 b = np.pi
+e = 1e-10
 print(np.pi/2)
-print(bi_section(f, a, b))
+print(bi_section(f, a, b, e))
